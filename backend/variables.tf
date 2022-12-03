@@ -27,3 +27,13 @@ variable "project" {
   default     = "cloud-resume-challenge"
 }
 
+variable "table_name" {
+  type        = string
+  description = "dynamodb table name"
+  default     = "visitor-counter-crc"
+}
+
+variable "aws_acm_certificate_arn" {
+  type    = string
+  default = "arn:aws:acm:us-east-1:216761891772:certificate/32656f1c-e651-4d89-9741-15c7e9b5cf3d "
+}

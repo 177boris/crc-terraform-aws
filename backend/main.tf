@@ -37,7 +37,7 @@ resource "aws_s3_bucket_policy" "s3_policy" {
 resource "aws_s3_object" "webpage" {
   bucket = aws_s3_bucket.website.id
   key    = "index.html"
-  source = "./../website/index.html"
+  source = "website/index.html"
 
   content_type = "text/html"
 
@@ -47,7 +47,7 @@ resource "aws_s3_object" "webpage" {
 resource "aws_s3_object" "image" {
   bucket = aws_s3_bucket.website.id
   key    = "icon3.png"
-  source = "./../website/icon3.png"
+  source = "website/icon3.png"
 
   tags = local.common_tags
 }
@@ -152,6 +152,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    cloudfront_default_certificate = true #cloudfront_default_certificate = data.aws_acm_certificate.amazon_issued.arn
   }
+
+
 }
+

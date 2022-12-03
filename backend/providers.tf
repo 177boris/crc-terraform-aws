@@ -1,5 +1,10 @@
 terraform {
-
+  backend "remote" {
+    organization = "snstech"
+    workspaces {
+      name = "oab-crc-terraform"
+    }
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"

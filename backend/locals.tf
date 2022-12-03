@@ -13,5 +13,5 @@ locals {
   s3_origin_id   = "OAB-Dev-S3-Origin"
   s3_bucket_name = lower("${local.name_prefix}-${random_integer.rand.result}")
 
-  name_prefix = "${var.naming_prefix}-${terraform.workspace}"
+  name_prefix = var.naming_prefix
 }
