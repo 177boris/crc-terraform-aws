@@ -12,7 +12,7 @@
 variable "naming_prefix" {
   type        = string
   description = "Naming prefix for all resources"
-  default     = "oab-crc"
+  default     = "boris-crc"
 }
 
 variable "aws_region" {
@@ -36,4 +36,11 @@ variable "table_name" {
 variable "aws_acm_certificate_arn" {
   type    = string
   default = "arn:aws:acm:us-east-1:216761891772:certificate/32656f1c-e651-4d89-9741-15c7e9b5cf3d "
+}
+
+variable "log_retention" {
+  type        = number
+  description = "log retention in days"
+  default     = 14
+
 }

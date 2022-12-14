@@ -7,7 +7,7 @@ locals {
 
   common_tags = {
     managed_by = "Terraform"
-    project    = "OAB-${var.project}"
+    project    = "Boris-${var.project}"
   }
 
   s3_origin_id   = "OAB-Dev-S3-Origin"

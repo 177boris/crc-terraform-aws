@@ -34,6 +34,7 @@ resource "aws_s3_bucket_policy" "s3_policy" {
   policy = data.aws_iam_policy_document.s3_policy.json
 }
 
+
 resource "aws_s3_object" "webpage" {
   bucket = aws_s3_bucket.website.id
   key    = "index.html"
@@ -44,10 +45,28 @@ resource "aws_s3_object" "webpage" {
   tags = local.common_tags
 }
 
+resource "aws_s3_object" "webapp_script" {
+  bucket = aws_s3_bucket.website.id
+  key    = "script.js"
+  source = "website/script.js"
+
+  tags = local.common_tags
+}
+
 resource "aws_s3_object" "image" {
   bucket = aws_s3_bucket.website.id
   key    = "icon3.png"
   source = "website/icon3.png"
+
+  tags = local.common_tags
+}
+
+resource "aws_s3_object" "error_page" {
+  bucket = aws_s3_bucket.website.id
+  key    = "error.html"
+  source = "website/error.html"
+
+  content_type = "text/html"
 
   tags = local.common_tags
 }
@@ -79,7 +98,38 @@ resource "aws_s3_bucket_public_access_block" "website_public_access_block" {
 }
 
 
-################################ 
+# =================================================================
+# DynamoDB table & items
+
+
+resource "aws_dynamodb_table" "counter_table" {
+  name         = var.table_name
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "ID"
+
+  attribute {
+    name = "ID"
+    type = "S"
+  }
+
+  tags = local.common_tags
+}
+
+# create the one and only item this table needs
+resource "aws_dynamodb_table_item" "tf_counter_table_items" {
+  table_name = aws_dynamodb_table.counter_table.name
+  hash_key   = aws_dynamodb_table.counter_table.hash_key
+  item       = <<EOF
+        {
+            "ID":{"S": "visitor_count"},
+            "value":{"N": "1"}
+        }
+    EOF
+}
+
+
+
+# =================================================================
 # CloudFront Config 
 
 resource "aws_cloudfront_origin_access_control" "s3_distribution_oac" {
