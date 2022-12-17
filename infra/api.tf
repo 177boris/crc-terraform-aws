@@ -1,10 +1,12 @@
 # =================================================================
 # API Gateway 
+# =================================================================
 
 resource "aws_apigatewayv2_api" "http_lambda" {
-  name          = "serverless_apigw_lambda-${random_pet.lambda.id}"
+  name          = "${aws_lambda_function.get_function.id}_http_api"
   protocol_type = "HTTP"
 
+  /* 
   target = aws_lambda_function.get_function.arn
   #disable_execute_api_endpoint = true
   cors_configuration {
@@ -16,15 +18,8 @@ resource "aws_apigatewayv2_api" "http_lambda" {
     allow_credentials = false
 
   }
-}
+  */
 
-resource "aws_lambda_permission" "api_gw" {
-  statement_id  = "AllowExecutionFromAPIGateway"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.get_function.function_name
-  principal     = "apigateway.amazonaws.com"
-
-  source_arn = "${aws_apigatewayv2_api.http_lambda.execution_arn}/*/*"
 }
 
 resource "aws_apigatewayv2_stage" "default" {
@@ -53,13 +48,20 @@ resource "aws_apigatewayv2_stage" "default" {
   depends_on = [aws_cloudwatch_log_group.api_gw]
 }
 
+resource "aws_cloudwatch_log_group" "api_gw" {
+  name = "/aws/api_gw/${aws_apigatewayv2_api.http_lambda.id}-logs"
+
+  retention_in_days = var.log_retention
+}
+
 resource "aws_apigatewayv2_integration" "apigw_lambda" {
   api_id      = aws_apigatewayv2_api.http_lambda.id
   description = "Lambda to handle DynamoDB operations"
 
-  integration_uri    = aws_lambda_function.get_function.invoke_arn
-  integration_type   = "AWS_PROXY"
-  integration_method = "POST"
+  integration_uri      = aws_lambda_function.get_function.invoke_arn
+  integration_type     = "AWS_PROXY"
+  integration_method   = "POST"
+  passthrough_behavior = "WHEN_NO_MATCH"
 }
 
 resource "aws_apigatewayv2_route" "get" {
@@ -69,8 +71,11 @@ resource "aws_apigatewayv2_route" "get" {
   target    = "integrations/${aws_apigatewayv2_integration.apigw_lambda.id}"
 }
 
-resource "aws_cloudwatch_log_group" "api_gw" {
-  name = "/aws/api_gw/${aws_apigatewayv2_api.http_lambda.id}-logs"
+resource "aws_lambda_permission" "api_gw" {
+  statement_id  = "AllowExecutionFromAPIGateway"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.get_function.function_name
+  principal     = "apigateway.amazonaws.com"
 
-  retention_in_days = var.log_retention
+  source_arn = "${aws_apigatewayv2_api.http_lambda.execution_arn}/*/*"
 }

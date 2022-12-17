@@ -8,15 +8,21 @@
 
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "domain_name" {
-  type    = string
-  default = "oabcloudresumechallenge.com"
-}
-
 variable "acm_certificate_arn" {
   type        = string
   description = "AWS ACM Certificate ARN"
   default     = "arn:aws:acm:us-east-1:216761891772:certificate/32656f1c-e651-4d89-9741-15c7e9b5cf3d"
+}
+variable "domain_name" {
+  type        = string
+  default     = "oabcloudresumechallenge.com"
+  description = "domain name"
+}
+
+variable "endpoint" {
+  type        = string
+  default     = "www.oabcloudresumechallenge.com"
+  description = "endpoint url"
 }
 
 variable "naming_prefix" {
@@ -41,11 +47,6 @@ variable "table_name" {
   type        = string
   description = "dynamodb table name"
   default     = "visitor-counter-crc"
-}
-
-variable "aws_acm_certificate_arn" {
-  type    = string
-  default = "arn:aws:acm:us-east-1:216761891772:certificate/32656f1c-e651-4d89-9741-15c7e9b5cf3d "
 }
 
 variable "log_retention" {

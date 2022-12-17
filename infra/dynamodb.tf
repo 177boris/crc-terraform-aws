@@ -1,7 +1,6 @@
-
 # =================================================================
 # DynamoDB table & items
-
+#==================================================================
 
 resource "aws_dynamodb_table" "counter_table" {
   name         = var.table_name
