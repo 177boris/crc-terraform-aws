@@ -82,11 +82,27 @@ data "aws_iam_policy_document" "s3policy" {
   }
 }
 
+
+
+/*
+
 # Webpage objects 
+
+resource "aws_s3_bucket_object" "resources" {
+  for_each = fileset("./../website/", "**")
+  bucket = aws_s3_bucket.website.id
+
+  key = each.value
+  source = "./../website/${each.value}"
+  etag = filemd5("./../website/${each.value}")
+}
+
+
+##### 
 resource "aws_s3_object" "webpage_home" {
   bucket = aws_s3_bucket.website.id
   key    = "index.html"
-  source = "website/index.html"
+  source = "${abspath(path.root)}/../website/index.html"
 
   content_type = "text/html"
 
@@ -97,7 +113,7 @@ resource "aws_s3_object" "webpage_home" {
 resource "aws_s3_object" "v_counter_js" {
   bucket = aws_s3_bucket.website.id
   key    = "counter.js"
-  source = "website/counter.js"
+  source = "${abspath(path.root)}/../website/counter.js"
 
   content_type = "text/javascript"
   tags         = local.common_tags
@@ -107,7 +123,7 @@ resource "aws_s3_object" "v_counter_js" {
 resource "aws_s3_object" "image" {
   bucket = aws_s3_bucket.website.id
   key    = "icon3.png"
-  source = "website/icon3.png"
+  source = "${abspath(path.root)}/../website/icon3.png"
 
   tags = local.common_tags
 }
@@ -115,9 +131,11 @@ resource "aws_s3_object" "image" {
 resource "aws_s3_object" "error_page" {
   bucket = aws_s3_bucket.website.id
   key    = "error.html"
-  source = "website/error.html"
+  source = "${abspath(path.root)}/../website/error.html"
 
   content_type = "text/html"
 
   tags = local.common_tags
 }
+
+*/

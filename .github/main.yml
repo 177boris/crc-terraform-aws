@@ -1,0 +1,7 @@
+# run tests for lambda handler 
+
+# build terraform infra 
+
+# upload s3 resources  
+
+# invalidate cloudfront cache 
