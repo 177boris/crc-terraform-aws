@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lanre - Cloud Resume Challenge</title>
+    <title>Lanre's Cloud Resume Challenge</title>
    
 
     <!-- font link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto+Mono:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/solid.min.css" integrity="sha512-tk4nGrLxft4l30r9ETuejLU0a3d7LwMzj0eXjzc16JQj+5U1IeVoCuGLObRDc3+eQMUcEQY1RIDPGvuA7SNQ2w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
@@ -17,7 +20,6 @@
     <!--  Css file links  -->
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./all.min.css" />
-
     <link rel="stylesheet" href="https://use.fontawesome.com/b219f80601.css">
 
     <script src="counter.js">  
@@ -27,14 +29,14 @@
   <body>
     <nav>
       <div class="header-container"> 
-        <h2 id="logo">Lanre B.</h2>
+        <h2 id="logo">Lanre Borishade</h2>
         <ul class="navigation-items">
           <li class="navigation-item" id="git-badge"><a href="https://github.com/177boris"><i class="fab fa-github"></i></a></li>
           <li class="navigation-item"><a href="#about-me">Profile</a></li>
           <li class="navigation-item"><a href="#skills">Skills</a></li>
           <li class="navigation-item"><a href="#projects">Projects & Experience</a></li>
           <button id="cta-contact"> <li class="navigation-item"><a href="mailto:lanreboris11@gmail.com?subject=Contacted from your Cloud Resume Challenge">Contact Me</a></li></button>
-          <li id="visitor" class="navigation-item"> You are visitor # <span id="visitorCount"> </span> </li>
+          <li id="visitor" class="navigation-item" style="color: #2251ff;"> You are visitor # <span id="visitorCount"> </span> </li>
         </ul>
       </div>
     </nav>
@@ -46,16 +48,17 @@
           <div class="about-me-text-container">
             <h2>Profile</h2>
             <p>
-              A recent Computer Science Graduate (B.Sc.) from The University of Manchester.
-              I've always been enthusiastic about problem-solving using technology.
-            </p>
-            <p>
-              I'm now an AWS Certified Cloud Practitioner who's 
-              become increasingly fascinated with scalable and distributed systems;
+              I'm AWS Certified and enjoy learning about 
+              scalable and fault-tolerant systems;
               I'm working towards becoming a versatile cloud software engineer and
               exploring the world of Serverless Computing while 
               building well-architected cloud native applications and implementing DevOps best practices.  
             </p>
+            <p>
+              A recent Computer Science Graduate (B.Sc.) from The University of Manchester.
+              I've always been enthusiastic about problem-solving using technology.
+            </p>
+            <p style="color:#2251ff;">Currently learning: Terraform, AWS, Github Actions.</p>
           </div>
           <div data-iframe-width="300" data-iframe-height="300" data-share-badge-id="42705914-a8d3-4ffd-9404-cc43588cb488" data-share-badge-host="https://www.credly.com"></div>
         <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
@@ -74,7 +77,7 @@
           <i class="fas fa-code"><p>SQL/NoSQL</p></i>
           <i class="fab fa-html5"><p>HTML</p></i>
           <i class="fab fa-css3-alt"><p>CSS</p></i>
-          <i class="fab fa-github"><p>Github</p></i>
+          <i class="fab fa-github"><p>Github/Git</p></i>
           <i class="fas fa-code"><p>VSCode</p></i>
         </div>
         <h3>Familiar</h3>
@@ -91,73 +94,83 @@
       </section>
 
       <section id="projects">
-        <h2>*Projects & Experience</h2>
+        <h2>Projects & Experience</h2>
         <h3>(click for more)</h3>
 
         <details class="project">
           <summary class="project-title">
-            <h3> Botosoft Technologies LTD - Software Engineer  </h3>
+            <h3> Botosoft Technologies, London - Software Engineer  </h3>
           </summary>
           <img
-            src="./img/clouds-bg.jpg"
+            src="./img/code5.jpg"
             alt="Work Experience 3"
             class="project-image"
           />
           <p class="project-description">
-              I've returned and I am extremely excited to be continuing my journey with Botosoft Technologies LTD.  
+              I am extremely excited to be continuing my journey with Botosoft Technologies LTD. 
+              <a href="https://waec.org" style="color: #2251ff;">Our most recent project</a>. My contributions include attending to and resolving 
+              nearly 500 customer support requests, automation of various backend processes on the system. 
           </p>
         </details>
 
 
         <details class="project">
           <summary class="project-title">
-            <h3> Freelance Software Developer - SNSTech </h3>
+            <h3> SNSTech - Freelance Software Developer </h3>
           </summary>
           <img
-            src="./img/clouds-bg.jpg"
+            src="./img/code2.jpg"
             alt="Work Experience 2"
             class="project-image"
           />
           <p class="project-description">
             Offering cloud solutions consulting services, software & web development services to clients in the UK and Nigeria. 
             I've worked on a variety of projects ranging from web applications to IoT and mobile applications. 
-            I've also worked on a few projects that involve the use of machine learning.
+            I've also completed a few projects that involve the use of Artificial Intelligence.
           </p>
         </details>
 
         <details class="project">
           <summary class="project-title">
-            <h3> Botosoft Technologies LTD - Software Engineer Internship </h3>
+            <h3> Botosoft Technologies, London - Software Engineer Internship </h3>
           </summary>
           <img
-            src="./img/clouds-bg.jpg"
+            src="./img/code5.jpg"
             alt="Work Experience 1"
             class="project-image"
           />
           <p class="project-description">
-              I worked as a software engineering intern for 3 months. 
-              I worked on a project that involved the use of machine learning to detect and classify images.  
+              I worked as a software engineering intern for 3 months,
+              on a project that involved the use of AI to detect and classify images. 
+              The main goal of the project was to ensure there were no duplicates in a recently migrated 
+              identity management system. 
           </p>
         </details>
 
         <details class="project">
           <summary class="project-title">
-            <h3> Project - Cloud Resume Challenge </h3>
+            <h3>Cloud Resume Challenge v1 & v2 - Project  </h3>
           </summary>
           <img
-            src="./img/clouds-bg.jpg"
+            src="./img/code7.jpg"
             alt="Project 1 - CRC "
             class="project-image"
           />
           <p class="project-description">
-              This is my cloud resume challenge. Read more about it here [github] and here [medium]. 
-              Links to be added soon 
+              The Cloud Resume Challenge is a challenge I highly recommend for anyone interested in cloud. 
+              I did this on AWS after my Cloud Practitioner exam and it was extremely valuable experience. 
+              V1 was done using AWS SAM and V2 was done using Terraform. 
+              I got to practice using AWS S3, API Gateway, Lambda, DynamoDB, Cloudfront, ACM and Route53 
+              as well as Terraform and Github Actions for building and automating the deployment of my infrastructure. 
+              Read more about it <a href="https://github.com/177boris" style="color : #2251ff;">on my Github</a> and 
+              <a href="https://medium.com/@lanreborishade/aws-cloud-resume-challenge-c2fc3976d746" style="color: #2251ff;">
+                my medium blog</a>
           </p>
         </details>
         
         <details class="project">
           <summary class="project-title">
-            <h3> Project - Personal Security Operations Centre (PSOC) - 3rd Year Project</h3>
+            <h3> Personal Security Operations Centre (PSOC) - 3rd Year Project</h3>
           </summary>
           <img
             src="./img/code3.jpg"
@@ -169,7 +182,9 @@
             My vision was to build a SIEM application that would be easy for beginners to use.  
             I created a SOC-like (Security Operations Centre) dashboard to visualise a user's device health stats. 
             I also implemented a URL classification feature using machine learning techniques which achieved training and test model accuracy of over 90%. 
-            Entire back-end and front-end of the application written in Python. This project included a detailed 12000-word report. Tools used include AWS EC2, AWS OpenSearch, AnvilWorks. 
+            Entire back-end and front-end of the application written in Python. 
+            This project included a detailed 12000-word report. 
+            Tools used include AWS EC2, Lambda, AWS OpenSearch, AnvilWorks. 
           </p>
         </details>
        

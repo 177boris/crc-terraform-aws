@@ -1,0 +1,231 @@
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  color: var(--font-color);
+}
+
+
+:root {
+  --spacing-1: 8px;
+  --spacing-2: 12px;
+  --spacing-3: 16px;
+  --spacing-4: 24px;
+
+  --border-radius: 12px;
+
+  --font-color:black;
+  --font-color2: black;
+}
+
+
+.img, .projects img{
+  max-width: 150px;
+  max-height: auto;
+
+}
+
+html{
+  padding: 0; margin: 0;
+  background-color: #fcfcfc;
+  background-size: cover;
+  z-index: -1;
+}
+
+#logo{
+  color: #2251ff;
+  padding-right: .2rem;
+  line-height: 2.5;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: var(--spacing-2);
+  font-size: 1.6rem;
+  color: #2251ff;
+}
+
+h3 {
+  margin: 0;
+  margin-bottom: var(--spacing-2);
+  font-size: 1.2rem;
+  color: black;
+}
+
+body {
+  font-family: "Roboto-Mono", "Monospace", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0 var(--spacing-3);
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-3) 0;
+}
+
+.navigation-items {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  align-items: center;
+  margin: 0;
+  margin-left: auto;
+}
+
+#cta-contact{
+  color: white;
+  background-color: gray;
+  border-radius:  10px;
+  outline: none;
+  border: none;
+}
+
+#cta-contact :hover{
+  transform: scale(1.09);
+  background-color: green;
+  color: black;
+}
+
+.navigation-items #git-badge{
+    font-size: 2em;
+    color: var(--font-color);
+    margin: 0 var(--spacing-1);
+}
+
+.navigation-item {
+  margin: var(--spacing-1);
+}
+
+#visitor{
+  font-size: 1.5em; 
+  font-weight: 700;
+  margin: var(--spacing-2);
+  color: var(--font-color2);
+}
+
+.portrait {
+  width: 200px;
+  height: auto;
+  border-radius: var(--border-radius);
+  flex-shrink: 0;
+}
+
+#main p{
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.header-container{
+  display: flex;
+}
+
+.about-me-container {
+  display: flex;
+}
+
+.about-me-text-container {
+  margin-right: var(--spacing-3);
+}
+
+.project-image {
+  width: 250px;
+  height: auto;
+  padding: 0.5em 0.5em 0.5em 0.5em; 
+}
+
+.project-title h3 {
+  display: inline;
+  font-size: 1.5em;
+}
+
+.project-description  {
+  font-weight: 800;
+  z-index: 1000;
+}
+
+.project-description a{
+}
+
+details {
+  cursor: pointer;
+}
+
+summary {
+  list-style-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/right-arrow.svg);
+}
+
+footer {
+  margin-top: auto;
+  padding: var(--spacing-2) 0;
+  text-align: center;
+}
+
+section {
+  padding: var(--spacing-3) 0;
+}
+
+.icon {
+  font-size: 2em;
+  color: var(--font-color);
+  margin: 0 var(--spacing-1);
+}
+
+a {
+  color: var(--font-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#logo {
+  margin: 0;
+}
+
+#skills-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 5px;
+}
+
+#skills-container > * {
+  font-size: 2em;
+  width: 2em;
+  margin-top: var(--spacing-1);
+}
+
+#skills-container p{
+  font-size: 0.4em;
+}
+
+#skills-container2 {
+  
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#skills-container2 > * {
+  font-size: 2em;
+  width: 2em;
+  margin-top: var(--spacing-1);
+}
+
+#skills-container2 p{
+  font-size: 0.4em;
+}
+
+@media only screen and (max-width: 600px) {
+  .header-container, .about-me-container {
+    flex-direction: column;
+  }
+}
