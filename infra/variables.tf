@@ -15,13 +15,13 @@ variable "acm_certificate_arn" {
 }
 variable "domain_name" {
   type        = string
-  default     = "oabcloudresumechallenge.com"
+  default     = "lanreborishade.xyz"
   description = "domain name"
 }
 
 variable "endpoint" {
   type        = string
-  default     = "www.oabcloudresumechallenge.com"
+  default     = "www.lanreborishade.xyz"
   description = "endpoint url"
 }
 

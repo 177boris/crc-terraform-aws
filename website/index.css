@@ -146,6 +146,10 @@ nav {
   font-size: 1.5em;
 }
 
+.project-title h3:hover {
+  color: #2251ff;
+}
+
 .project-description  {
   font-weight: 800;
   z-index: 1000;
