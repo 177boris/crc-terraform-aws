@@ -35,6 +35,10 @@ jobs:
         run: |
           cd infra
           ls
+      
+      - name: Terraform init 
+        id: init 
+        run: terraform init -reconfigure
 
       - name: Terraform format 
         id: fmt
@@ -86,9 +90,7 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          cd infra 
-          terraform apply -auto-approve -input=false
+        run: terraform apply -auto-approve -input=false
 
 
 
@@ -102,21 +104,21 @@ jobs:
         with:
           args: --delete
         env:
-          AWS_S3_BUCKET: www.oabcloudresumechallenge.com
+          AWS_S3_BUCKET: www.lanreborishade.xyz
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           SOURCE_DIR: website
 
 
-### invalidate cloudfront cache 
-  invalidate-cloudfront:
+  # Clears the CloudFront cache so new requests will receive the latest version of your app
+  invalidate_cache:
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - uses: awact/cloudfront-action@master
+    steps: 
+    - name: Invalidate Cloudfront
+      uses: chetan/invalidate-cloudfront-action@v1.3
       env:
-        SOURCE_PATH: 'website'
+        DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+        PATHS: '/*'
         AWS_REGION: 'us-east-1'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID }}
