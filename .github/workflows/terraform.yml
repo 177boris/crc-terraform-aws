@@ -33,11 +33,6 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-      - name: Open infra directory 
-        id: infra-open 
-        run: |
-          cd infra
-          ls
       
       - name: Terraform init 
         id: init 
