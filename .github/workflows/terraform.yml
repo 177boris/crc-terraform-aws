@@ -1,0 +1,120 @@
+# https://developer.hashicorp.com/terraform/tutorials/automation/github-actions
+
+name: Terraform
+
+on:
+  push:
+    branches:
+      - main
+  pull_request: 
+
+
+# TODO: tests for lambda handler 
+
+
+jobs: 
+  terraform:
+      name: 'Terraform'
+      runs-on: ubuntu-latest
+      env: 
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-east-1'
+
+      steps:  
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Open infra directory 
+        id: infra-open 
+        run: |
+          cd infra
+          ls
+
+      - name: Terraform format 
+        id: fmt
+        run: terraform fmt -check
+
+      - name: Terraform validate 
+        id: validate 
+        run: terraform validate -no-color 
+
+      - name: Terraform Plan
+        id: plan
+        if: github.event_name == 'pull_request'
+        run: terraform plan -no-color -input=false
+        continue-on-error: true
+
+      - name: Update Pull Request
+        uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        env:
+          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
+            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
+            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+            #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+
+            <details><summary>Show Plan</summary>
+
+            \`\`\`\n
+            ${process.env.PLAN}
+            \`\`\`
+
+            </details>
+
+            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
+
+      - name: Terraform Plan Status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve -input=false
+
+
+
+### Upload s3 resources  
+  deploy-site:
+    #needs: build-infra
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --delete
+        env:
+          AWS_S3_BUCKET: www.oabcloudresumechallenge.com
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          SOURCE_DIR: website
+
+
+### invalidate cloudfront cache 
+  invalidate-cloudfront:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: awact/cloudfront-action@master
+      env:
+        SOURCE_PATH: 'website'
+        AWS_REGION: 'us-east-1'
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID }}
