@@ -9,9 +9,6 @@ on:
   pull_request: 
 
 
-# TODO: tests for lambda handler 
-
-
 jobs: 
   terraform:
       name: 'Terraform'
