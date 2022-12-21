@@ -38,7 +38,7 @@ jobs:
       
       - name: Terraform init 
         id: init 
-        run: terraform init -reconfigure
+        run: terraform init -migrate-state
 
       - name: Terraform format 
         id: fmt
@@ -117,7 +117,7 @@ jobs:
     - name: Invalidate Cloudfront
       uses: chetan/invalidate-cloudfront-action@v1.3
       env:
-        DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+        DISTRIBUTION: ${{ secrets.DISTRIBUTION_ID }}
         PATHS: '/*'
         AWS_REGION: 'us-east-1'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
