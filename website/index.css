@@ -17,8 +17,8 @@ body {
 
   --border-radius: 12px;
 
-  --font-color:black;
-  --font-color2: black;
+  --font-color: #dcdcdc;
+  --font-color2: #2251ff;
 }
 
 
@@ -30,13 +30,13 @@ body {
 
 html{
   padding: 0; margin: 0;
-  background-color: #fcfcfc;
+  background-color: #191919;
   background-size: cover;
   z-index: -1;
 }
 
 #logo{
-  color: #2251ff;
+  color: var(--font-color2);
   padding-right: .2rem;
   line-height: 2.5;
 }
@@ -45,14 +45,14 @@ h2 {
   margin: 0;
   margin-bottom: var(--spacing-2);
   font-size: 1.6rem;
-  color: #2251ff;
+  color: var(--font-color2);
 }
 
 h3 {
   margin: 0;
   margin-bottom: var(--spacing-2);
   font-size: 1.2rem;
-  color: black;
+  color: var(--font-color);
 }
 
 body {
@@ -81,16 +81,16 @@ nav {
 }
 
 #cta-contact{
-  color: white;
-  background-color: gray;
-  border-radius:  10px;
+  color: var(--font-color);
+  background-color: #191919;
+  border-radius:  8px;
   outline: none;
   border: none;
 }
 
 #cta-contact :hover{
   transform: scale(1.09);
-  background-color: green;
+  background-color: var(--font-color2);
   color: black;
 }
 
@@ -102,6 +102,10 @@ nav {
 
 .navigation-item {
   margin: var(--spacing-1);
+}
+
+.navigation-item a:hover{
+  color: var(--font-color2);
 }
 
 #visitor{
