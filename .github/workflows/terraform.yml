@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v2
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
@@ -112,7 +112,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Invalidate Cloudfront
-      uses: chetan/invalidate-cloudfront-action@v1.3
+      uses: chetan/invalidate-cloudfront-action@v2.4
       env:
         DISTRIBUTION: ${{ secrets.DISTRIBUTION_ID }}
         PATHS: '/*'
