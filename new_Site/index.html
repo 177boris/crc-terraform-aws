@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LB portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+</head>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>ABOUT</p>
+  </a>
+  <a href="#skills" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-code w3-xxlarge"></i>
+    <p>SKILLS</p>
+  </a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>CONTACT</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
+    <a href="#skills" class="w3-bar-item w3-button" style="width:25% !important">SKILLS</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">I'm</span> Lanre... </h1>
+    <h4> A Technology Consultant and Cloud Software Engineer</h4>
+  </header>
+
+  <!-- About Section --> 
+  <div class="w3-content w3-justify w3-text-grey w3-padding-32" id="about">
+    <h2 class="w3-text-light-grey">About Me</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p class="w3-text-light-grey">I'm AWS Certified and enjoy learning about scalable and fault-tolerant applications; 
+      I'm working towards becoming a versatile cloud software engineer and exploring the world of 
+      Serverless Computing while building well-architected cloud native applications and implementing DevOps best practices.
+
+      A Computer Science Graduate (B.Sc. Hons) from The University of Manchester. 
+      I've always been enthusiastic about problem-solving using technology.
+      
+      I'm currently studying: Terraform, AWS, Github Actions. 
+      Studying Cloud Engineering at Alt School ✓</p>
+    
+      <!-- BADGES -->
+      <div style="display: flex;"> 
+      <div data-iframe-width="300" data-iframe-height="300" data-share-badge-id="42705914-a8d3-4ffd-9404-cc43588cb488" data-share-badge-host="https://www.credly.com"></div>
+      <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+      <div data-iframe-width="300" data-iframe-height="300" data-share-badge-id="9df9114a-8952-4233-bec1-af2b970825bb" data-share-badge-host="https://www.credly.com"></div>
+      <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+
+    </div>
+
+    <!-- Grid for skills tables -->
+    <h3 class="w3-padding-24 w3-text-light-grey" id="skills">Skills - Tech Stack</h3>
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Proficient</li>
+          <li class="w3-padding-16">AWS</li>
+          <li class="w3-padding-16">Python</li>
+          <li class="w3-padding-16">Terraform</li>
+          <li class="w3-padding-16">CLI / Linux OS</li>
+          <li class="w3-padding-16">Golang</li>
+          <li class="w3-padding-16">SQL/NoSQL Databases</li>
+          <li class="w3-padding-16">Git - GitHub and GitLab</li>
+          <li class="w3-padding-16">HTML</li>
+          <li class="w3-padding-16">CSS</li>
+          <li class="w3-padding-16">VS Code</li>
+        </ul>
+      </div>
+
+      <div class="w3-half">
+        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Familiar</li>
+          <li class="w3-padding-16">Azure</li>
+          <li class="w3-padding-16">JavaScript</li>
+          <li class="w3-padding-16">Java</li>
+          <li class="w3-padding-16">Docker</li>
+          <li class="w3-padding-16">Networking</li>
+          <li class="w3-padding-16">Cybersecurity</li>
+          <li class="w3-padding-16">Kubernetes</li>
+          <li class="w3-padding-16">Postman</li>
+          <li class="w3-padding-16">PyCharm</li>
+        </ul>
+      </div>
+    <!-- End Skills tables -->
+    </div>
+    
+    <!-- Experience -->
+    <h3 class="w3-padding-24 w3-text-light-grey" id="exp">My Work Experience & Projects</h3>  
+    <p class="w3-text-light-grey"><span class="w3-large w3-margin-right">Principle One, London</span> Consultant</p> 
+
+    <img src="BTS.png" alt="BTS" class="w3-left w3-circle w3-margin-right" style="width:80px;">
+    <p class="w3-text-light-grey"><span class="w3-large w3-margin-right">Botosoft Technologies Ltd, London</span> Software Engineer</p>
+    <p class="w3-text-light-grey">....</p><br>
+    
+    <img src="/w3images/avatar_g2.jpg" alt="SNS" class="w3-left w3-circle w3-margin-right" style="width:80px;">
+    <p class="w3-text-light-grey"><span class="w3-large w3-margin-right">SNS Technology Solutions Inc. </span>Cofounder & Cloud Engineer </p>
+    <p class="w3-text-light-grey">....</p>
+
+    <img src="BTS.png" alt="BTS" class="w3-left w3-circle w3-margin-right" style="width:80px;">
+    <p class="w3-text-light-grey"><span class="w3-large w3-margin-right">Botosoft Technologies Ltd, London</span> Software Engineer - Intern</p>
+    <p class="w3-text-light-grey">....</p>
+
+  <!-- End Experience Section -->
+  </div>
+  
+
+  <!-- Contact Section -->
+  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
+    <h2 class="w3-text-light-grey">Contact Info </h2>
+    <hr style="width:200px" class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: dev@snslabs.tech</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: lanreboris11@gmail.com</p>
+    </div><br>
+  <!-- End Contact Section -->
+  </div>
+  
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <h2 class="w3-text-light-grey">Connect with me</h2>
+    <hr style="width:200px" class="w3-opacity">
+
+    <i class="fa fa-github w3-hover-opacity"> </i>
+    <i class="fa fa-linkedin w3-hover-opacity"> </i>
+     <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+</body>
+</html>
+
+
+
